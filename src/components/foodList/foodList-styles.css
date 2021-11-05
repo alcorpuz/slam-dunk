@@ -7,4 +7,33 @@
     padding-top: 50px;
     padding-bottom: 200px;
   }
+
+.menu-options{
+  padding-top: 25px;
+  padding-left: 10%;
+  padding-right: 10%;
+  display: flex;
+  justify-content:space-around;
+}
+.menu-button {
+  display: inline-block;
+  padding:0.35em 1.2em;
+  background: transparent;
+  border:0.1em solid white;
+  margin:0 0.3em 0.3em 0;
+  border-radius:0.12em;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-family:'Roboto',sans-serif;
+  font-weight:300;
+  color:black;
+  text-align:center;
+  transition: all 0.2s;
+  border-radius: 12px;
   
+}
+.menu-button:hover{
+  color:white;
+  background-color:black;
+  transform: scale(1.05);
+  }
