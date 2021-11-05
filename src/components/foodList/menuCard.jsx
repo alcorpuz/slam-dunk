@@ -14,6 +14,9 @@ const costOfFood = (price)=>{
 const Card = (props) => (
     <div className="card-container"> 
         <h1>{props.food.name}</h1>
+        <img alt="food" src={props.food.img}
+            width="50%"
+            height="auto"/>
         <h3> {props.food.description} </h3>
         <p>Price: {costOfFood(props.food.price)}</p>
     </div>
