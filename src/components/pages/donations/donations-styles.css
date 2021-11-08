@@ -1,0 +1,26 @@
+.donations-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 10%;
+  padding-bottom: 50%;
+}
+
+.donations-list {
+  display: flex;
+  align-self: auto;
+  flex-direction: column;
+  justify-content: center;
+}
+.submit {
+  display: inline-block;
+  background: #4285f4;
+  color: #ffff;
+  width: 190px;
+  border-radius: 5px;
+  border: thin solid #888;
+  box-shadow: 1px 1px 1px grey;
+  white-space: nowrap;
+}
