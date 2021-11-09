@@ -30,7 +30,7 @@
   text-align:center;
   transition: all 0.2s;
   border-radius: 12px;
-  
+  cursor: pointer;
 }
 .menu-button:hover{
   color:white;

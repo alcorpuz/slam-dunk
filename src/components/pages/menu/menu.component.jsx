@@ -6,22 +6,40 @@ class Menu extends Component {
         super();
 
         this.state = { 
-            food:[]
+            food:[],
+            foodCopy:[]
     }
   }
+
+
   componentDidMount() {
     fetch('http://localhost:3000/food')
     .then(response => response.json())
-    .then(data => this.setState({food:data}));
+    .then(data => this.setState({food:data,foodCopy:data}));
+ 
   }
+
+
+  // filter button 
+  handleButtons=(e)=>{
+    console.log(e.target.value)
+    let filteredFood;
+    if(e.target.value ==="Full Menu"){
+      filteredFood = this.state.food
+    }else{
+      filteredFood = this.state.food.filter(item=>item.type === e.target.value)
+    }
+    this.setState({
+      foodCopy:filteredFood
+    })
+  }
+
 
 
     render() {
         return (
            <div className='Menu container'>
-               <FoodList food = {this.state.food}> 
-               </FoodList>
-               
+               <FoodList food = {this.state.foodCopy} handleButtons={this.handleButtons}/> 
            </div>
         )
     }
