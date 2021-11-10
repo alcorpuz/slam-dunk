@@ -29,7 +29,9 @@ function DonationsPage() {
 
     return (
         <div className="donations-container">
-            <h3> We Love To help Our Community!<br/> 
+            <h3> We Love To help Our Community!
+                <br/>
+                <br/> 
                 To Request A Donation Please Fill Out The Following</h3>
             <form className="donations-list" onSubmit= {sendEmail}>
                 <label>Organization Name: </label>
