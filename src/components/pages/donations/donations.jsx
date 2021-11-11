@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useRef} from 'react'
 import './donations-styles.css'
 import emailjs from "emailjs-com"
 
@@ -26,51 +26,74 @@ function DonationsPage() {
             e.target.reset()
   };
 
+  const[showDonations, setShowDonations] = useState(false)
+  const toggleDonations = () => {
+      setShowDonations(prev =>! prev)
+  }
+  const modalRef = useRef()
+  const closeModal = e => {
+      if(modalRef.current === e.target.value) {
+          setShowDonations(false);
+      }
+  }
 
     return (
-        <div className="donations-container">
-            <h3> We Love To help Our Community!
-                <br/>
-                <br/> 
-                To Request A Donation Please Fill Out The Following</h3>
-            <form className="donations-list" onSubmit= {sendEmail}>
-                <label>Organization Name: </label>
-                <input 
-                    placeholder=" example: Girl Scouts" 
-                    type="text"
-                    name="org_name"/><br/>
-                <label>Organization Tax Id: </label>
-                <input
-                    placeholder="xx-xxxxxxx" 
-                    type="text"
-                    name="taxId"/><br/>
-                <label>What Would You Like Donated: </label>
-                <input
-                    placeholder="3 large pizzas" 
-                    type="text"
-                    name="request"/><br/>
-                <label>Date Of Event: </label>
-                <input
-                    placeholder={date()} 
-                    type="text"
-                    name="date"/><br/>
-                <label>What Type Of Event: </label>
-                <input
-                    placeholder="Fund raiser"
-                    type="text"
-                    name="type"/><br/>
-                <label>Your Name: </label>
-                <input 
-                    placeholder="Enter your name" 
-                    type="text"
-                    name="name"/><br/>
-                <label>What Is Your Email: </label>
-                <input
-                    placeholder="Example@Example.com"
-                    type="text"
-                    name="email"/><br/>
-                <input className="submit" type="submit" vlaue="send message"/>
-            </form>
+
+        <div className="container">
+            <button className="toggleModal" onClick={toggleDonations}>Request Donation Now</button>
+            {showDonations ? 
+                <div className="donations-container" >
+                    <div className="modalWrapper">
+                    <button className="closeModal">X</button>
+                        <h3> We Love To help Our Community!
+                            <br/>
+                            <br/> 
+                            To Request A Donation Please Fill Out The Following</h3>
+                        <form className="donations-list" onSubmit= {sendEmail}>
+                            <label>Organization Name: </label>
+                            <input 
+                                placeholder=" example: Girl Scouts" 
+                                type="text"
+                                name="org_name"/><br/>
+                            <label>Organization Tax Id: </label>
+                            <input
+                                placeholder="xx-xxxxxxx" 
+                                type="text"
+                                name="taxId"/><br/>
+                            <label>What Would You Like Donated: </label>
+                            <input
+                                placeholder="3 large pizzas" 
+                                type="text"
+                                name="request"/><br/>
+                            <label>Date Of Event: </label>
+                            <input
+                                placeholder={date()} 
+                                type="text"
+                                name="date"/><br/>
+                            <label>What Type Of Event: </label>
+                            <input
+                                placeholder="Fund raiser"
+                                type="text"
+                                name="type"/><br/>
+                            <label>Your Name: </label>
+                            <input 
+                                placeholder="Enter your name" 
+                                type="text"
+                                name="name"/><br/>
+                            <label>What Is Your Email: </label>
+                            <input
+                                placeholder="Example@Example.com"
+                                type="text"
+                                name="email"/><br/>
+                            <input className="submit" type="submit" vlaue="send message"/>
+                        </form>
+                    </div>
+                </div>
+            : 
+                <div>
+                    <h1>this is whhat displasys during false value</h1>
+                </div>
+            }
         </div>
     )
 }
