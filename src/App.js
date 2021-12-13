@@ -5,6 +5,12 @@ import Header from './components/header/header.component';
 import Footer from './components/footer/footer.component';
 import Menu from './components/pages/menu/menu.component';
 import DonationsPage from './components/pages/donations/donations';
+import Amplify from 'aws-amplify';
+import awsconfig from './aws-exports';
+
+
+Amplify.configure(awsconfig)
+
 
 function App() {
   return (
