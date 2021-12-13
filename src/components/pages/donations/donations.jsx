@@ -1,4 +1,4 @@
-import React, {useState, useRef} from 'react'
+import React, {useState} from 'react'
 import './donations-styles.css'
 import emailjs from "emailjs-com"
 
@@ -30,21 +30,18 @@ function DonationsPage() {
   const toggleDonations = () => {
       setShowDonations(prev =>! prev)
   }
-  const modalRef = useRef()
   const closeModal = e => {
-      if(modalRef.current === e.target.value) {
-          setShowDonations(false);
-      }
-  }
+      setShowDonations(prev=>! prev)
+  } 
+  const foodTruck = require('../../../assests/foodTruck.jpg')
 
     return (
 
         <div className="container">
-            <button className="toggleModal" onClick={toggleDonations}>Request Donation Now</button>
             {showDonations ? 
                 <div className="donations-container" >
                     <div className="modalWrapper">
-                    <button className="closeModal">X</button>
+                    <button className="closeModal" onClick={closeModal}>X</button>
                         <h3> We Love To help Our Community!
                             <br/>
                             <br/> 
@@ -90,8 +87,18 @@ function DonationsPage() {
                     </div>
                 </div>
             : 
-                <div>
-                    <h1>this is whhat displasys during false value</h1>
+                <div className="default-container">
+                    <div className="word-container">
+                        <p>Lorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content. It's also called placeholder (or filler) text. It's a convenient tool for mock-ups. It helps to outline the visual elements of a document or presentation, eg typography, font, or layout. Lorem ipsum is mostly a part of a Latin text by the classical author and philosopher Cicero. Its words and letters have been changed by addition or removal, so to deliberately render its content nonsensical; it's not genuine, correct, or comprehensible Latin anymore. While lorem ipsum's still resembles classical Latin, it actually has no meaning whatsoever. As Cicero's text doesn't contain the letters K, W, or Z, alien to latin, these, and others are often inserted randomly to mimic the typographic appearence of European languages, as are digraphs not to be found in the original.</p>
+                        <p>Lorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content. It's also called placeholder (or filler) text. It's a convenient tool for mock-ups. It helps to outline the visual elements of a document or presentation, eg typography, font, or layout. Lorem ipsum is mostly a part of a Latin text by the classical author and philosopher Cicero. Its words and letters have been changed by addition or removal, so to deliberately render its content nonsensical; it's not genuine, correct, or comprehensible Latin anymore. While lorem ipsum's still resembles classical Latin, it actually has no meaning whatsoever. As Cicero's text doesn't contain the letters K, W, or Z, alien to latin, these, and others are often inserted randomly to mimic the typographic appearence of European languages, as are digraphs not to be found in the original.</p>
+                        <p>Lorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content. It's also called placeholder (or filler) text. It's a convenient tool for mock-ups. It helps to outline the visual elements of a document or presentation, eg typography, font, or layout. Lorem ipsum is mostly a part of a Latin text by the classical author and philosopher Cicero. Its words and letters have been changed by addition or removal, so to deliberately render its content nonsensical; it's not genuine, correct, or comprehensible Latin anymore. While lorem ipsum's still resembles classical Latin, it actually has no meaning whatsoever. As Cicero's text doesn't contain the letters K, W, or Z, alien to latin, these, and others are often inserted randomly to mimic the typographic appearence of European languages, as are digraphs not to be found in the original.</p>
+                        <p>Lorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content. It's also called placeholder (or filler) text. It's a convenient tool for mock-ups. It helps to outline the visual elements of a document or presentation, eg typography, font, or layout. Lorem ipsum is mostly a part of a Latin text by the classical author and philosopher Cicero. Its words and letters have been changed by addition or removal, so to deliberately render its content nonsensical; it's not genuine, correct, or comprehensible Latin anymore. While lorem ipsum's still resembles classical Latin, it actually has no meaning whatsoever. As Cicero's text doesn't contain the letters K, W, or Z, alien to latin, these, and others are often inserted randomly to mimic the typographic appearence of European languages, as are digraphs not to be found in the original.</p>
+                        <button className="toggleModal" onClick={toggleDonations}>Request Donation Now</button>
+                    </div>
+                    <div className="image-container">
+                        <img src={foodTruck} alt="food Truck" />
+                    </div>
+                    
                 </div>
             }
         </div>
