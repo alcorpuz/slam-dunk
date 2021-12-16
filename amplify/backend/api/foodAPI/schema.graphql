@@ -1,0 +1,9 @@
+type Food @model {
+  id: ID!
+  name: String!
+  description: String!
+  price: String! 
+  img: String!
+  type: String!
+}
+
